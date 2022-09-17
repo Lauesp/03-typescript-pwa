@@ -4,31 +4,40 @@
     ===== Código de TypeScript =====
 */
 //let direccion:(string|number)[]=['Mexico','Guanajuato','Francisco Villa',1418];
+interface Direccion{
+    calle:string;
+    pais:string;
+    estado:string;
+}
 
-interface utlAlumno{
+interface DatosAlumno{
+    nombre:string;
+    edad:number;
+    direccion:Direccion;
+    mostrarDireccion:()=>string;
+}
+/*interface utlAlumno{
     nombre:string;
     edad:number;
     direccion:{};
     mostrarDireccion:()=>void;
-    
-    
-}
+}*/
 
-const pruebaAlumno:utlAlumno={
+const AlumnoUTL:DatosAlumno={
     nombre:'Laura',
     edad:23,
     direccion:{
         pais:'Mexico',
         estado:'Guanajuato',
         calle:'Francisco Villa',
-        numero:1233,
     },
 
     mostrarDireccion(){
 
-        return this.nombre+','+this.edad+','+this.direccion;
+        return this.nombre+', '+this.direccion.estado+','+this.direccion.pais;
     }
 
     
 }
-
+const direccion=AlumnoUTL.mostrarDireccion();
+console.log(direccion);
